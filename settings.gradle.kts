@@ -21,4 +21,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "FCerioKitchenSink"
 include(":app")
- 
+include(":domain")
+include(":local")
+include(":network")

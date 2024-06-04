@@ -13,9 +13,8 @@
         android:theme="@style/Theme.FCerioKitchenSink"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".features.image.ImageActivity"
             android:exported="true"
-            android:label="@string/app_name"
             android:theme="@style/Theme.FCerioKitchenSink">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
