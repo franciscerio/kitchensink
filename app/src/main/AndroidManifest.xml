@@ -13,7 +13,7 @@
         android:theme="@style/Theme.FCerioKitchenSink"
         tools:targetApi="31">
         <activity
-            android:name=".features.image.ImageActivity"
+            android:name=".features.styling.StylingTextActivity"
             android:exported="true"
             android:theme="@style/Theme.FCerioKitchenSink">
             <intent-filter>
