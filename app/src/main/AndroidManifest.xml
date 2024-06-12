@@ -13,7 +13,7 @@
         android:theme="@style/Theme.FCerioKitchenSink"
         tools:targetApi="31">
         <activity
-            android:name=".features.views.TextFieldButtonsSnackBarActivity"
+            android:name=".features.list.ListActivity"
             android:exported="true"
             android:theme="@style/Theme.FCerioKitchenSink">
             <intent-filter>
