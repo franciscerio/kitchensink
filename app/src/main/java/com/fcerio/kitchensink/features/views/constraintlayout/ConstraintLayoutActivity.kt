@@ -23,22 +23,23 @@ class ConstraintLayoutActivity : ComponentActivity() {
             val constraints = ConstraintSet {
                 val greenBox = createRefFor("greenbox")
                 val redBox = createRefFor("redbox")
+                val guideLines = createGuidelineFromTop(0.5f)
 
                 constrain(greenBox) {
-                    top.linkTo(parent.top)
+                    top.linkTo(guideLines)
                     start.linkTo(parent.start)
                     width = Dimension.value(100.dp)
                     height = Dimension.value(100.dp)
                 }
                 constrain(redBox) {
-                    top.linkTo(parent.top)
+                    top.linkTo(greenBox.top)
                     start.linkTo(greenBox.end)
                     end.linkTo(parent.end)
                     width = Dimension.value(100.dp)
                     height = Dimension.value(100.dp)
                 }
 
-                // createHorizontalChain(greenBox, redBox, chainStyle = ChainStyle.Spread)
+                createHorizontalChain(greenBox, redBox, chainStyle = ChainStyle.Packed)
             }
 
             ConstraintLayout(constraints, Modifier.fillMaxSize()) {
