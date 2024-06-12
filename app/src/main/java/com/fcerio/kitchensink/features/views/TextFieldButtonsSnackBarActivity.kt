@@ -35,6 +35,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
 
@@ -50,9 +51,13 @@ class TextFieldButtonsSnackBarActivity : ComponentActivity() {
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
+@Preview(showBackground = true)
 @Composable
 fun ScaffoldExample() {
     var presses by remember { mutableIntStateOf(0) }
+    var textState by remember {
+        mutableStateOf("")
+    }
 
     val snackBarHostState = remember {
         SnackbarHostState()
@@ -62,7 +67,7 @@ fun ScaffoldExample() {
 
     Scaffold(
         snackbarHost = {
-            SnackbarHost(hostState = snackBarHostState, )
+            SnackbarHost(hostState = snackBarHostState)
         },
         topBar = {
             TopAppBar(
@@ -84,7 +89,7 @@ fun ScaffoldExample() {
                     modifier = Modifier
                         .fillMaxWidth(),
                     textAlign = TextAlign.Center,
-                    text = "Bottom app bar",
+                    text = textState.plus(" ").plus("count $presses"),
                 )
             }
         },
@@ -116,6 +121,16 @@ fun ScaffoldExample() {
 
                     You have pressed the floating action button $presses times.
                 """.trimIndent(),
+            )
+
+            TextField(
+                modifier = Modifier.fillMaxWidth().padding(16.dp),
+                value = textState,
+                label = {
+                    Text(text = "Enter your sample name:")
+                }, onValueChange = {
+                    textState = it
+                }
             )
         }
     }
