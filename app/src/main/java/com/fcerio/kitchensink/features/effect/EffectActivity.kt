@@ -18,11 +18,13 @@ import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.produceState
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class EffectActivity : ComponentActivity() {
@@ -34,18 +36,19 @@ class EffectActivity : ComponentActivity() {
                 SnackbarHostState()
             }
             val scope = rememberCoroutineScope()
-            var counter by remember {
-                mutableIntStateOf(0)
+            var counter = produceState(initialValue = 0) {
+                delay(3000L)
+                value = 4
             }
 
-            if (counter % 5 == 0 && counter > 0) {
+            if (counter.value % 5 == 0 && counter.value > 0) {
                 LaunchedEffect(key1 = snackBarHostState) {
                     snackBarHostState.showSnackbar("Hello")
                 }
             }
             Scaffold(snackbarHost = { SnackbarHost(hostState = snackBarHostState) }) {
-                Button(modifier = Modifier.padding(it), onClick = { counter++ }) {
-                    Text(text = "Click me: $counter")
+                Button(modifier = Modifier.padding(it), onClick = {   }) {
+                    Text(text = "Click me: ${counter.value}")
                 }
             }
         }
