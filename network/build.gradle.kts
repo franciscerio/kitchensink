@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsKotlinAndroid)
     id("kotlin-android")
-    id("kotlin-kapt")
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -35,13 +35,15 @@ android {
 }
 
 dependencies {
+    implementation(project(":domain"))
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
-    api(libs.gson)
+    api(libs.moshi)
 
     // Retrofit
     api(libs.retrofit)
-    api(libs.retrofit.gson)
+    api(libs.retrofit.moshi)
     api(libs.retrofit.scalars)
 
     // OkHttp
@@ -49,7 +51,7 @@ dependencies {
     api(libs.okhttp.logging)
 
     // Dagger-Hilt
-    kapt(libs.hilt.compiler)
+    ksp(libs.hilt.compiler)
     api(libs.hilt.android)
 
     testImplementation(libs.junit)

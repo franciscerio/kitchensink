@@ -1,6 +1,6 @@
 package com.fcerio.network.di
 
-import com.fcerio.network.features.BaseApiServices
+import com.fcerio.network.services.WeatherApiServices
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,5 +16,5 @@ object ApiModule {
     @Singleton
     fun providesBaseApiService(
         retrofit: Retrofit
-    ): BaseApiServices = retrofit.create(BaseApiServices::class.java)
+    ): WeatherApiServices = retrofit.create(WeatherApiServices::class.java)
 }
