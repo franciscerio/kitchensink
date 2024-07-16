@@ -54,8 +54,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":local"))
-    implementation(project(":network"))
+    implementation(project(":data"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -67,6 +66,7 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.viewmodel.compose)
+    implementation(libs.compose.foundation)
 
     //Dagger - Hilt
     implementation(libs.hilt.android)

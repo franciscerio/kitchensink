@@ -44,6 +44,8 @@ fun WeatherDataDTO.toWeatherDataMap(): Map<Int, List<WeatherData>> {
             )
         )
     }.groupBy {
+        // it.index is hours
+        // 24 hours
         it.index / 24
     }.mapValues {
         it.value.map { it.data }
