@@ -1,6 +1,7 @@
 package com.fcerio.network.di
 
 import android.content.Context
+import com.fcerio.network.BuildConfig
 import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
@@ -39,7 +40,7 @@ object NetworkModule {
     fun providesRetrofit(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
             .baseUrl(
-                "http://localhost/"
+                BuildConfig.BASE_URL
             )
             .addConverterFactory(ScalarsConverterFactory.create())
             .addConverterFactory(MoshiConverterFactory.create())

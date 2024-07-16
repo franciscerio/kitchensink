@@ -5,6 +5,9 @@ plugins {
     id("com.google.devtools.ksp")
 }
 
+apply(from = "$rootDir/secret.gradle.kts")
+val stagingApi: List<Pair<String, String>> by project.extra
+
 android {
     namespace = "com.fcerio.network"
     compileSdk = 34
@@ -23,6 +26,9 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+        }
+        debug {
+            stagingApi.forEach { buildConfigField("String", it.first, "\"${it.second}\"") }
         }
     }
     compileOptions {

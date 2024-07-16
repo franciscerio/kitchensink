@@ -13,9 +13,12 @@ appcompat = "1.7.0"
 material = "1.12.0"
 constraintlayout-compose = "1.0.1"
 androidx-preference = "1.2.1"
+viewmodel-compose = "2.8.3"
 
 # Dependency Injection
 hilt = "2.51"
+hiltCompose = "1.2.0"
+hiltViewModelLifecycle = "1.0.0-alpha03"
 
 # Network
 retrofit = "2.9.0"
@@ -29,6 +32,9 @@ room = "2.6.1"
 sql-cipher = "4.4.3"
 sql-lite = "2.4.0"
 security-crypto = "1.1.0-alpha06"
+
+# Location
+location = "21.3.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -49,6 +55,8 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 constraintlayout-compose = { module = "androidx.constraintlayout:constraintlayout-compose", version.ref = "constraintlayout-compose" }
 androidx-preference = { module = "androidx.preference:preference-ktx", version.ref = "androidx-preference" }
+viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "viewmodel-compose" }
+
 
 # Network
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
@@ -66,6 +74,11 @@ moshi = { module = "com.squareup.moshi:moshi", version.ref = "moshi" }
 hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt" }
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
 hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt" }
+hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltCompose" }
+hilt-viewmodel = { module = "androidx.hilt:hilt-lifecycle-viewmodel", version.ref = "hiltViewModelLifecycle" }
+
+# Location
+google-play-services-location = { module = "com.google.android.gms:play-services-location", version.ref = "location" }
 
 # Room
 room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
